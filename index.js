@@ -11,6 +11,10 @@ const io = socketIO(server);
 app.get('/api', (req, res) => {
   res.send('Hello World, from express');
 });
+
+app.use(function(req, res, next){
+  res.json(404, {ERROR: 'Page not found.'});
+});
 const connectedUsers = {};
 
 io.on('connection', (socket) => {
