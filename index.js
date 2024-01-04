@@ -8,6 +8,9 @@ app.use(cors()); // Enable CORS for all routes
 const server = http.createServer(app);
 const io = socketIO(server);
 
+app.get('/api', (req, res) => {
+  res.send('Hello World, from express');
+});
 const connectedUsers = {};
 
 io.on('connection', (socket) => {
